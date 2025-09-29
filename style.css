@@ -1,0 +1,376 @@
+/* ---------------- IMPORT GOOGLE FONTS ---------------- */
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Square+Peg&display=swap');
+
+/* ---------------- ROOT VARIABLES ---------------- */
+:root {
+  /* Colors */
+  --primary-color: #004F44;       /* Dark Green */
+  --secondary-color: #EFF7F5;     /* Light Cream */
+  --accent-color: #385E49;        /* Dark Teal */
+  --accent-hover: #2B4937;        /* Hover color */
+  --text-color: #333333;          /* General text */
+  --overlay-color: rgba(0,0,0,0.25);
+  --white: #ffffff;
+  --taupe: #c9b19e;
+
+  /* Fonts */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Acme', sans-serif;
+  --font-heading: 'Acme', sans-serif;
+}
+
+/* ---------------- GLOBAL STYLES ---------------- */
+body {
+  font-family: var(--font-primary);
+  margin: 0;
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+  margin: 0;
+}
+
+p {
+  font-family: var(--font-secondary);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* ---------------- HEADER ---------------- */
+.header {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.navbar {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* ---------------- HERO SECTION ---------------- */
+.hero h1 {
+  font-size: 64px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--secondary-color);
+}
+
+.desc {
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  color: var(--secondary-color);
+}
+
+.btn-custom {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 10px 20px;
+  border: none;
+}
+
+.blank_btn {
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+/* ---------------- CARDS ---------------- */
+.card {
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* ---------------- PLANT CARDS ---------------- */
+.plant-card {
+  width: 100%;
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.plant-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.plant-card:hover .main-img {
+  transform: scale(1.05);
+}
+
+.hover-img {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.plant-card:hover .hover-img {
+  opacity: 0.5;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: var(--overlay-color);
+}
+
+.plant-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+.scroll-arrow-btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 10;
+  
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  }
+  
+  /* Hover effect */
+  .scroll-arrow-btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  }
+  
+  /* Active click effect */
+  .scroll-arrow-btn:active {
+    transform: translateY(-50%) scale(0.95);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+  }
+  
+
+/* ---------------- COLOR DOTS ---------------- */
+.color-options {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 5px;
+}
+
+.color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.color-dot.active {
+  padding: 2px;
+  border: 1px solid #333;
+}
+
+.color-black { background-color: #333; }
+.color-taupe { background-color: var(--taupe); }
+.color-white { background-color: var(--white); border: 1px solid #ccc; }
+
+/* ---------------- BUY BUTTON ---------------- */
+.buy-btn {
+  background-color: var(--accent-color);
+  color: var(--white);
+  border-radius: 4px;
+  font-weight: 500;
+  padding: 6px 15px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.buy-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* ---------------- HORIZONTAL SCROLL ---------------- */
+.plant-list {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px;
+  padding-left: 15px;
+}
+
+.plant-list::-webkit-scrollbar {
+  display: none;
+}
+
+.featured-card-col {
+  flex: 0 0 75%;
+  max-width: 75%;
+  padding-right: 15px;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 576px) { .featured-card-col { flex: 0 0 50%; max-width: 50%; } }
+@media (min-width: 768px) { 
+  .plant-list { overflow-x: visible; flex-wrap: wrap; padding-left: 0; }
+  .featured-card-col { flex: 0 0 auto; max-width: none; padding-right: var(--bs-gutter-x, 1.5rem); }
+}
+@media (min-width: 992px) { .featured-card-col { flex: 0 0 25%; } }
+
+/* ---------------- SEARCH SECTION ---------------- */
+.search { background-color: #F3FFFC; }
+.search-box { padding: 17px; }
+
+/* ---------------- SIMPLE BLOCKS (PLANT STANDS) ---------------- */
+.simple-block {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.simple-block img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.simple-block:hover img { transform: scale(1.05); }
+.simple-block:hover { box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2); }
+
+/* ---------------- FREE SHIPPING ---------------- */
+.shipping-section {
+  padding: 0;
+}
+
+.shipping-row {
+  background-image: url('image/freeshipping.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: var(--white);
+  padding: 40px 20px;
+}
+
+.overlay-content {
+  max-width: 500px;
+}
+
+.overlay-title { font-size: 44px; font-family: var(--font-secondary); color: #9C6955; }
+.overlay-desc { font-size: 17px; letter-spacing: 0.3px; font-family: var(--font-secondary); color: #9C6955; }
+.overlay-phone, .overlay-email { font-family: var(--font-secondary); color: #9C6955; }
+.overlay-phone i, .overlay-email i { font-size: 1.2rem; vertical-align: middle; color: #9C6955; }
+
+/* ---------------- MAP SECTION ---------------- */
+.visit-us-section { padding: 60px 15px; }
+
+.visit-row {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-image: url('image/map.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem;
+}
+
+.visit-content {
+  max-width: 500px;
+  margin-left: 45px;
+  position: relative;
+}
+
+.visit-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: #0A1E1B;
+  font-weight: 600;
+}
+
+.visit-desc, .visit-hours {
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: #666666;
+  line-height: 26px;
+}
+
+.visit-hours strong {
+  font-family: var(--font-secondary);
+  color: #0A1E1B;
+  font-weight: 400;
+}
+
+.visit-btn {
+  background-color: var(--accent-color);
+  color: var(--white);
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.visit-btn:hover { background-color: var(--accent-hover); }
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 992px) {
+  .hero h1 { font-size: 48px; text-align: center; }
+  .desc { text-align: center; }
+  .col-6.d-flex.flex-column.align-items-center,
+  .col-6.d-flex.justify-content-center.mb-4 { width: 100% !important; }
+  .card { height: auto !important; }
+  .shipping-row { min-height: 300px; text-align: center; justify-content: center; }
+  .overlay-title { font-size: 32px; }
+  .shipping-row p { font-size: 14px; }
+  .visit-row { flex-direction: column; text-align: center; min-height: 300px; }
+  .visit-content { max-width: 100%; margin: auto; }
+  .visit-title { font-size: 28px; }
+  .visit-desc, .visit-hours { font-size: 14px; }
+  .visit-btn { position: static; margin-bottom: 20px; }
+}
+
+@media (max-width: 768px) { .hero h1 { font-size: 36px; } }
+
+@media (max-width: 576px) {
+  .shipping-row { min-height: 250px; padding: 20px 10px; }
+  .overlay-title { font-size: 24px; }
+  .shipping-row p { font-size: 12px; }
+  .visit-title { font-size: 24px; }
+  .visit-desc, .visit-hours { font-size: 12px; }
+}
